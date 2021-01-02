@@ -8,7 +8,7 @@
 <input type="email" name="email" id="email" value="{{ $empleado->email ?? '' }}">
 <label for="photo">Foto</label>
 @if (isset($empleado->photo))
-    <img src="{{ asset($empleado->photo ?? '') }}">
+    <img src="{{ asset('storage') . '/' . $empleado->photo ?? '' }}">
 @endif
 <input type="file" name="photo" id="photo">
 <button type="submit">Guardar</button>
