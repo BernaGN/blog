@@ -6,31 +6,33 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Tags') }}
-                        <a class="btn btn-link" href="{{ route('tags.create') }}">Create Tag</a>
+                        {{ __('Posts') }}
+                        <a class="btn btn-link" href="{{ route('posts.create') }}">Create Post</a>
                     </div>
 
                     <div class="card-body">
-                        @if ($tags->count())
+                        @if ($posts->count())
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Posts</th>
                                         <th>Created At</th>
                                         <th>Update At</th>
                                         <th>Accions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tags as $tag)
+                                    @foreach ($posts as $post)
                                         <tr>
-                                            <td scope="row">{{ $tag->id }}</td>
-                                            <td>{{ $tag->name }}</td>
-                                            <td>{{ $tag->created_at }}</td>
-                                            <td>{{ $tag->updated_at }}</td>
+                                            <td scope="row">{{ $post->id }}</td>
+                                            <td>{{ $post->name }}</td>
+                                            <td>{{ $post->post }}</td>
+                                            <td>{{ $post->created_at }}</td>
+                                            <td>{{ $post->updated_at }}</td>
                                             <td>
-                                                <x-dropdown :id="$tag->id" show="tags" edit="tags" destroy="tags" />
+                                                <x-dropdown :id="$post->id" show="posts" edit="posts" destroy="posts" />
                                             </td>
                                         </tr>
                                     @endforeach

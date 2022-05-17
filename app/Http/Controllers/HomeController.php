@@ -10,7 +10,9 @@ class HomeController extends Controller
     public function __invoke()
     {
         return view('home', [
-            'posts' => Post::all(),
+            'posts' => Post::addSelect([
+                'category' => Category::with('tags:id,name')->select('name')->whereColumn('category_id', 'categories.id')->limit(1),
+            ])->get(),
         ]);
     }
 }
