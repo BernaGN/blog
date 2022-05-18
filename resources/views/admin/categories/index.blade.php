@@ -9,31 +9,20 @@
 
                     <div class="card-body">
                         @if ($categories->count())
-                            <table class="table">
-                                <thead>
+                            <x-tables.table :headers="['ID', 'Name', 'Created At', 'Update At', 'Accions']">
+                                @foreach ($categories as $category)
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Created At</th>
-                                        <th>Update At</th>
-                                        <th>Accions</th>
+                                        <td scope="row">{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->created_at }}</td>
+                                        <td>{{ $category->updated_at }}</td>
+                                        <td>
+                                            <x-buttons.dropdown :id="$category->id" show="categories" edit="categories"
+                                                destroy="categories" />
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($categories as $category)
-                                        <tr>
-                                            <td scope="row">{{ $category->id }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->created_at }}</td>
-                                            <td>{{ $category->updated_at }}</td>
-                                            <td>
-                                                <x-dropdown :id="$category->id" show="categories" edit="categories"
-                                                    destroy="categories" />
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                @endforeach
+                            </x-Tables.table>
                         @else
                             <h1>No hay registros</h1>
                         @endif

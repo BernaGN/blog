@@ -9,32 +9,21 @@
 
                     <div class="card-body">
                         @if ($posts->count())
-                            <table class="table">
-                                <thead>
+                            <x-tables.table :headers="['ID', 'Name', 'Post', 'Created At', 'Updated At', 'Accions']">
+                                @foreach ($posts as $post)
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Posts</th>
-                                        <th>Created At</th>
-                                        <th>Update At</th>
-                                        <th>Accions</th>
+                                        <td scope="row">{{ $post->id }}</td>
+                                        <td>{{ $post->name }}</td>
+                                        <td>{{ $post->post }}</td>
+                                        <td>{{ $post->created_at }}</td>
+                                        <td>{{ $post->updated_at }}</td>
+                                        <td>
+                                            <x-buttons.dropdown :id="$post->id" show="posts" edit="posts"
+                                                destroy="posts" />
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($posts as $post)
-                                        <tr>
-                                            <td scope="row">{{ $post->id }}</td>
-                                            <td>{{ $post->name }}</td>
-                                            <td>{{ $post->post }}</td>
-                                            <td>{{ $post->created_at }}</td>
-                                            <td>{{ $post->updated_at }}</td>
-                                            <td>
-                                                <x-dropdown :id="$post->id" show="posts" edit="posts" destroy="posts" />
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                @endforeach
+                            </x-Tables.table>
                         @else
                             <h1>No hay registros</h1>
                         @endif
