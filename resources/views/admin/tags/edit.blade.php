@@ -3,11 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        {{ __('Tags') }}
-                    </div>
+                    <x-header route="tags.index" name="Edit Tags" />
 
                     <div class="card-body">
                         <form action="{{ route('tags.update', $tag->id) }}" method="post">

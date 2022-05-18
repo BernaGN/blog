@@ -3,12 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        {{ __('Tags') }}
-                        <a class="btn btn-link" href="{{ route('tags.create') }}">Create Tag</a>
-                    </div>
+                    <x-header buttonText="Create Tag" route="tags.create" name="Tags" />
 
                     <div class="card-body">
                         @if ($tags->count())

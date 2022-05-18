@@ -1,14 +1,18 @@
-<div class="col-md-6">
+<div class="col-md mb-4">
     <div class="card">
         <div class="card-header">
-            Header
+            {{ $date->format('d-m-Y') }}
+            <div class="float-end">{{ $user }}</div>
         </div>
         <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">Text</p>
+            <h4 class="card-title">{{ $title }}</h4>
+            <p class="card-text">{{ $post }}</p>
+            <img src="{{ asset($image) }}" alt="Imagen">
         </div>
         <div class="card-footer text-muted">
-            Footer
+            @foreach ($tags as $tag)
+                <p>{{ $tag->name }}</p>
+            @endforeach
         </div>
     </div>
 </div>

@@ -3,11 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        {{ __('Categories') }}
-                    </div>
+                    <x-header route="categories.index" name="Edit Categories" />
 
                     <div class="card-body">
                         <form action="{{ route('categories.update', $category->id) }}" method="post">

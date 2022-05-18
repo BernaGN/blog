@@ -3,12 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        {{ __('Tags') }}
-                        <a class="btn btn-primary" href="{{ route('tags.index') }}">Regresar</a>
-                    </div>
+                    <x-header route="tags.index" name="Show Tags" />
 
                     <div class="card-body">
                         <ul>

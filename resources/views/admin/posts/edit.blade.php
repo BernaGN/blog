@@ -5,12 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header route="categories.index" name="Create Categories" />
+                    <x-header route="posts.index" name="Edit Posts" />
 
                     <div class="card-body">
-                        <form action="{{ route('categories.store') }}" method="post">
+                        <form action="{{ route('posts.store') }}" method="post">
                             @csrf
-                            @include('admin.categories.form')
+                            @include('admin.posts.form')
                         </form>
                     </div>
                 </div>
