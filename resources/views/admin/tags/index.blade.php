@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header name="Tags">
+                    <x-div.header name="Tags">
                         <x-buttons.a text="Create Tag" route="tags.create" />
-                    </x-header>
+                    </x-div.header>
 
                     <div class="card-body">
                         @if ($tags->count())

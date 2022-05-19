@@ -9,9 +9,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header name="Posts">
+                    <x-div.header name="Posts">
                         <x-buttons.a text="Create Post" route="posts.create" />
-                    </x-header>
+                    </x-div.header>
 
                     <div class="card-body">
                         @if ($posts->count())
