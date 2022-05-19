@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header name="Create Categories">
+                    <x-div.header name="Create Categories">
                         <x-buttons.a route="categories.index" />
-                    </x-header>
+                    </x-div.header>
 
                     <div class="card-body">
                         <form action="{{ route('categories.store') }}" method="post">

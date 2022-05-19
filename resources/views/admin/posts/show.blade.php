@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header name="Show Post">
+                    <x-div.header name="Show Post">
                         <x-buttons.a route="posts.index" />
-                    </x-header>
+                    </x-div.header>
 
                     <div class="card-body">
                         <ul>

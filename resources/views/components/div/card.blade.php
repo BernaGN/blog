@@ -7,7 +7,9 @@
         <div class="card-body">
             <h4 class="card-title">{{ $item->name }}</h4>
             <p class="card-text">{{ $item->post }}</p>
-            <img src="{{ asset($item->image) }}" alt="Imagen">
+            <img src="{{ asset('storage/uploads/' . $item->image) }}" alt="Imagen" class="img-fluid">
+
+            <x-buttons.a route="posts.show" :id="$item->id" text="Show" />
         </div>
         <div class="card-footer text-muted">
             @foreach ($item->tags as $tag)

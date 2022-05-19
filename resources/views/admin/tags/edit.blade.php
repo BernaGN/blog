@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header name="Edit Tags">
+                    <x-div.header name="Edit Tags">
                         <x-buttons.a route="tags.index" />
-                    </x-header>
+                    </x-div.header>
 
                     <div class="card-body">
                         <form action="{{ route('tags.update', $tag->id) }}" method="post">

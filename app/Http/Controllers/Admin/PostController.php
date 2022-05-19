@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,9 +30,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        $post = new Post();
         return view('admin.posts.create', [
-            'post' => new Post(),
+            'post' => $post,
             'categories' => Category::all(),
+            'tags' => $post->tags->implode('name', ', '),
         ]);
     }
 
@@ -43,7 +46,26 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        //
+        $tags = explode(',', $request->tags);
+
+        if ($request->has('image')) {
+            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('uploads', $filename, 'public');
+        }
+        $post = Post::create([
+            'name' => $request->name,
+            'image' => $filename ?? null,
+            'post' => $request->post,
+            'category_id' => $request->category_id,
+            'user_id' => $request->user_id,
+        ]);
+
+        foreach ($tags as $tagName) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $post->tags()->attach($tag);
+        }
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -70,6 +92,7 @@ class PostController extends Controller
         return view('admin.posts.edit', [
             'post' => $post,
             'categories' => Category::all(),
+            'tags' => $post->tags->implode('name', ', '),
         ]);
     }
 
@@ -82,7 +105,32 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        //
+        $tags = explode(',', $request->tags);
+
+        if ($request->has('image')) {
+            Storage::delete('public/uploads/' . $post->image);
+
+            $request->image = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('uploads', $request->image, 'public');
+        }
+
+        $post = Post::create([
+            'name' => $request->name,
+            'image' => $filename ?? $post->image,
+            'post' => $request->post,
+            'category_id' => $request->category_id,
+            'user_id' => $request->user_id,
+        ]);
+
+        $newTags = [];
+        foreach ($tags as $tagName) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            array_push($newTags, $tag->id);
+        }
+        $post->tags()->sync($newTags);
+
+        return redirect()->route('posts.index');
+
     }
 
     /**

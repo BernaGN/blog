@@ -9,15 +9,15 @@
 </x-div.group>
 
 <x-div.group name="image" text="Image">
-    <x-text.input type="file" name="image" accept="img/*" required />
+    <x-text.input type="file" name="image" accept="img/*" />
 </x-div.group>
 
 <x-div.group name="tags" text="Tags">
-    <x-text.input name="tags" placeholder="Tags" required />
+    <x-text.input name="tags" placeholder="Tags" :value="$tags" required />
 </x-div.group>
 
-<x-div.group name="category" text="Category">
-    <x-text.select name="category" :items="$categories" :valor="$post->category_id" required />
+<x-div.group name="category_id" text="Category">
+    <x-text.select name="category_id" :items="$categories" :valor="$post->category_id" required />
 </x-div.group>
 
 <x-buttons.button type="submit" class="btn btn-primary mt-2" text="Save" />
