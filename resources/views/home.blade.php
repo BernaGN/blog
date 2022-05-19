@@ -15,8 +15,7 @@
                         @endif
                         <div class="row">
                             @foreach ($posts as $post)
-                                <x-div.card :date="$post->created_at" :title="$post->name" :post="$post->post" :image="$post->image"
-                                    :user="$post->user->name" :tags="$post->tags" />
+                                <x-div.card :item="$post" />
                             @endforeach
                         </div>
                     </div>
