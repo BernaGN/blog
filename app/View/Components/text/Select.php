@@ -1,21 +1,22 @@
 <?php
 
-namespace App\View\Components\buttons;
+namespace App\View\Components\text;
 
 use Illuminate\View\Component;
 
-class button extends Component
+class Select extends Component
 {
-    public $type, $text;
+    public $name, $items, $valor;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text = "Options", $type = "button")
+    public function __construct($name, $items, $valor)
     {
-        $this->text = $text;
-        $this->type = $type;
+        $this->name = $name;
+        $this->items = $items;
+        $this->valor = $valor;
     }
 
     /**
@@ -25,6 +26,6 @@ class button extends Component
      */
     public function render()
     {
-        return view('components.buttons.button');
+        return view('components.text.select');
     }
 }

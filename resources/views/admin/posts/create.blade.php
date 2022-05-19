@@ -10,7 +10,7 @@
                     </x-header>
 
                     <div class="card-body">
-                        <form action="{{ route('posts.store') }}" method="post">
+                        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @include('admin.posts.form')
                         </form>

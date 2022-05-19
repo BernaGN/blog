@@ -4,7 +4,7 @@ namespace App\View\Components\buttons;
 
 use Illuminate\View\Component;
 
-class a extends Component
+class A extends Component
 {
     public $route, $text, $class, $id;
     /**

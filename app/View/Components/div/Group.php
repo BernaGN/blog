@@ -1,21 +1,21 @@
 <?php
 
-namespace App\View\Components\buttons;
+namespace App\View\Components\div;
 
 use Illuminate\View\Component;
 
-class button extends Component
+class group extends Component
 {
-    public $type, $text;
+    public $name, $text;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text = "Options", $type = "button")
+    public function __construct($name, $text)
     {
+        $this->name = $name;
         $this->text = $text;
-        $this->type = $type;
     }
 
     /**
@@ -25,6 +25,6 @@ class button extends Component
      */
     public function render()
     {
-        return view('components.buttons.button');
+        return view('components.div.group');
     }
 }

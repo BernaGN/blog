@@ -1,6 +1,5 @@
-<div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="{{ $category->name }}"
-        required>
-</div>
+<x-div.group name="name" text="Name">
+    <x-text.input name="name" placeholder="Name" value="{{ $category->name }}" required />
+</x-div.group>
+
 <x-buttons.button type="submit" class="btn btn-primary mt-2" text="Save" />
