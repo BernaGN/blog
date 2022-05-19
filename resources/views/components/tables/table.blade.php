@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="{{ $id }}">
     <thead>
         <tr>
             @foreach ($headers as $header)

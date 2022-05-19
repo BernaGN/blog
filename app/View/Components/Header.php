@@ -6,18 +6,15 @@ use Illuminate\View\Component;
 
 class Header extends Component
 {
-    public $name, $classBtn, $route, $buttonText;
+    public $name;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $route, $buttonText = "Regresar", $classBtn = "link")
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->route = $route;
-        $this->buttonText = $buttonText;
-        $this->classBtn = $classBtn;
     }
 
     /**

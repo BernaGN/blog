@@ -27,4 +27,4 @@
         @endforeach
     </select>
 </div>
-<button type="submit" class="btn btn-primary mt-2">Save</button>
+<x-buttons.button type="submit" class="btn btn-primary mt-2" text="Save" />

@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header route="tags.index" name="Create Tags" />
+                    <x-header name="Create Tags">
+                        <x-buttons.a route="tags.index" />
+                    </x-header>
 
                     <div class="card-body">
                         <form action="{{ route('tags.store') }}" method="post">

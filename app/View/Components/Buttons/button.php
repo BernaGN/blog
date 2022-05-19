@@ -1,21 +1,22 @@
 <?php
 
-namespace App\View\Components\Tables;
+namespace App\View\Components\buttons;
 
 use Illuminate\View\Component;
 
-class Table extends Component
+class button extends Component
 {
-    public $headers, $id;
+    public $class, $type, $text;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($headers, $id)
+    public function __construct($class, $text = "Options", $type = "button")
     {
-        $this->headers = $headers;
-        $this->id = $id;
+        $this->class = $class;
+        $this->text = $text;
+        $this->type = $type;
     }
 
     /**
@@ -25,6 +26,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.tables.table');
+        return view('components.buttons.button');
     }
 }

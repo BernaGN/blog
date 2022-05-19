@@ -6,19 +6,17 @@ use Illuminate\View\Component;
 
 class Dropdown extends Component
 {
-    public $id, $show, $edit, $destroy;
+    public $id, $route;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($id, $show, $edit, $destroy)
+    public function __construct($id, $route)
     {
         $this->id = $id;
-        $this->show = $show;
-        $this->edit = $edit;
-        $this->destroy = $destroy;
+        $this->route = $route;
 
     }
 

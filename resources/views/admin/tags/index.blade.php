@@ -5,11 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <x-header buttonText="Create Tag" route="tags.create" name="Tags" />
+                    <x-header name="Tags">
+                        <x-buttons.a text="Create Tag" route="tags.create" />
+                    </x-header>
 
                     <div class="card-body">
                         @if ($tags->count())
-                            <x-tables.table :headers="['ID', 'Name', 'Created At', 'Update At', 'Accions']">
+                            <x-tables.table :headers="['ID', 'Name', 'Created At', 'Update At', 'Accions']" id="tags">
                                 @foreach ($tags as $tag)
                                     <tr>
                                         <td scope="row">{{ $tag->id }}</td>
@@ -17,7 +19,7 @@
                                         <td>{{ $tag->created_at }}</td>
                                         <td>{{ $tag->updated_at }}</td>
                                         <td>
-                                            <x-buttons.dropdown :id="$tag->id" show="tags" edit="tags" destroy="tags" />
+                                            <x-buttons.dropdown :id="$tag->id" route="tags" />
                                         </td>
                                     </tr>
                                 @endforeach

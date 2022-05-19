@@ -1,19 +1,13 @@
 <div class="dropdown open">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Options
-    </button>
+    <x-buttons.button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" />
     <div class="dropdown-menu" aria-labelledby="triggerId">
-        <form action="{{ route($destroy . '.destroy', $id) }}" method="post">
-            <a class="dropdown-item" href="{{ route($show . '.show', $id) }}"> Show
-            </a>
-            <a class="dropdown-item" href="{{ route($edit . '.edit', $id) }}"> Edit
-            </a>
+        <form action="{{ route($route . '.destroy', $id) }}" method="post">
+            <x-buttons.a class="dropdown-item" :route="$route . '.show'" :id="$id" text="Show" />
+            <x-buttons.a class="dropdown-item" :route="$route . '.edit'" :id="$id" text="Edit" />
             @csrf
             @method('Delete')
-            <button class="dropdown-item" type="submit">
-                Delete
-            </button>
+            <x-buttons.button class="dropdown-item" type="submit" text="Delete" />
         </form>
     </div>
 </div>
